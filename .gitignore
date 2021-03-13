@@ -1,0 +1,4 @@
+# Project exclude paths
+/spring-batch/src/main/java/com/javatech/springbatch/multithread/
+/spring-batch/src/main/java/com/javatech/springbatch/parallel/
+/spring-batch/target/

@@ -1,0 +1,24 @@
+
+
+job can have multiple steps
+and conditional steps
+with in step
+
+job: flow executes steps
+step: jobs are made of one or more steps
+steps can be sequantial
+steps can be paraller
+steps can be conditional
+within steps most of the task are TASKLET type. TASKLET is interface which will execute that within the scope of TTRANSACTION
+one of the tasklet is CHUNK oriented tasklet
+process 1M records it will process chun of data at a time till the 1M records gets processed
+
+CHUNK id made up of ITEM
+STEP
+
+Scaling up batch processing
+- Multithreaded steps
+- Parallel steps
+- Async itemprocessor / Async itemwriter
+- Partitioning
+- Remote chunking

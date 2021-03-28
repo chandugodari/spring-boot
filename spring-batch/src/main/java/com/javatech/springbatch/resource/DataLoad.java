@@ -30,10 +30,10 @@ public class DataLoad {
         Map<String, JobParameter> maps = new HashMap<>();
         maps.put("time", new JobParameter(System.currentTimeMillis()));
         JobParameters parameters = new JobParameters(maps);
-       JobExecution jobExecution =  jobLauncher.run(job, parameters);
-        System.out.println("jobexecution "+jobExecution.getStatus());
+        JobExecution jobExecution = jobLauncher.run(job, parameters);
+        System.out.println("jobexecution " + jobExecution.getStatus());
         System.out.println("batch is running ");
-        while (jobExecution.isRunning()){
+        while (jobExecution.isRunning()) {
             System.out.println("... ");
         }
         return jobExecution.getStatus();

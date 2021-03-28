@@ -35,9 +35,8 @@ public class AsyncProcessorJobApp {
     private StepBuilderFactory stepBuilderFactory;
 
 
-
     @Bean
-    public Job asyncJob(){
+    public Job asyncJob() {
         return this.jobBuilderFactory.get("asynchJob")
                 .start(stepOneAsync())
                 .listener(new ExecutionTimeJobListner())
@@ -57,7 +56,7 @@ public class AsyncProcessorJobApp {
     }
 
     @Bean
-    public ItemProcessor<User,User> processor(){
+    public ItemProcessor<User, User> processor() {
         return (transaction) -> {
             Thread.sleep(5);
             return transaction;
@@ -65,7 +64,7 @@ public class AsyncProcessorJobApp {
     }
 
     @Bean
-    public AsyncItemProcessor<User  , User> asynItemProcessor(){
+    public AsyncItemProcessor<User, User> asynItemProcessor() {
         AsyncItemProcessor<User, User> asyncItemProcessor = new AsyncItemProcessor<>();
         asyncItemProcessor.setDelegate(processor());
         asyncItemProcessor.setTaskExecutor(new SimpleAsyncTaskExecutor());
@@ -73,7 +72,7 @@ public class AsyncProcessorJobApp {
     }
 
     @Bean
-    public AsyncItemWriter<User> asyncItemWriter(){
+    public AsyncItemWriter<User> asyncItemWriter() {
         AsyncItemWriter<User> asyncItemWriter = new AsyncItemWriter<>();
         asyncItemWriter.setDelegate(writer(null));
         return asyncItemWriter;
@@ -98,6 +97,7 @@ public class AsyncProcessorJobApp {
                 }).build();
 
     }
+
     @Bean
     @StepScope
     public ItemWriter<User> writer(DataSource dataSource) {
